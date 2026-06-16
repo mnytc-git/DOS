@@ -4,10 +4,10 @@ FROM kalilinux/kali-rolling
 # 2. Masuk sebagai Root untuk instalasi sistem
 USER root
 
-# 3. Instal alat tempur dasar, sudo, dan dependensi VS Code
+# 3. Instal alat tempur, sudo, dependensi, DAN ADDUSER (Solusi Error 127)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    sudo curl git wget nmap net-tools python3 python3-pip python3-venv && \
+    sudo curl git wget nmap net-tools python3 python3-pip python3-venv adduser && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # 4. Memanipulasi sistem agar menerima user 'jovyan' (Syarat wajib Binder)
